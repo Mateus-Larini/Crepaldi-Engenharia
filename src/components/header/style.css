@@ -37,7 +37,7 @@ html {
   z-index: 2;
 }
 
-/* Cabeçalho fixo */
+/* NAV fixo */
 .header-bar {
   position: fixed;
   top: 0;
@@ -47,13 +47,11 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 5;
-}
-
-.logo-container img {
-  height: 120px;
-  width: auto;
-  display: block;
+  z-index: 999;
+  color: white;
+  transition: all 0.4s ease;
+  background-color: transparent;
+  backdrop-filter: none;
 }
 
 .nav-container {
@@ -63,15 +61,39 @@ html {
 }
 
 .nav-container a {
-  color: white;
+  color: inherit;
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
-  transition: transform 0.3s ease-in-out;
+  transition: color 0.4s ease, transform 0.3s ease;
 }
 
 .nav-container a:hover {
   transform: scale(1.1);
+}
+
+/* EFEITO AO CHEGAR NA SEÇÃO SOBRE */
+.nav-light {
+  /* background-color removido para ficar transparente */
+  /* backdrop-filter removido */
+  color: #0d3b66;
+  box-shadow: none; /* sem sombra */
+}
+
+.nav-light .nav-container a {
+  color: #0d3b66;
+}
+
+/* Deixa a logo mais escura automaticamente */
+.nav-light .logo-container img {
+  filter: brightness(0) saturate(100%) invert(14%) sepia(47%) saturate(504%) hue-rotate(176deg) brightness(93%) contrast(96%);
+}
+
+/* Logo */
+.logo-container img {
+  height: 120px;
+  width: auto;
+  display: block;
 }
 
 /* Texto central */
@@ -93,12 +115,13 @@ html {
   margin-top: 40px;
 }
 
+/* Botão WhatsApp */
 .button-direct-wpp {
   z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px; 
+  margin-top: 20px;
   width: auto;
   padding: 0;
 }

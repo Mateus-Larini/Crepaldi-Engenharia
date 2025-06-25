@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useMemo } from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
 import video1 from "../../assets/videos/buscando-chave.mp4";
 import video2 from "../../assets/videos/arrumando-peca.mp4";
 import logo from "../../assets/images/logo-crepaldi-engenharia.png";
@@ -13,6 +13,7 @@ const HeaderPage = () => {
   const refs = useMemo(() => [videoRef1, videoRef2], []);
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [lightNav, setLightNav] = useState(false);
 
   useEffect(() => {
     const currentVideo = refs[activeIndex].current;
@@ -50,8 +51,28 @@ const HeaderPage = () => {
     };
   }, [activeIndex, refs, videos.length]);
 
+  // IntersectionObserver para detectar a seção #sobre
+  useEffect(() => {
+    const aboutSection = document.getElementById("sobre");
+    if (!aboutSection) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setLightNav(entry.isIntersecting);
+      },
+      {
+        root: null,
+        threshold: 0.3,
+      }
+    );
+
+    observer.observe(aboutSection);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <header className="header-container">
+    <header className="header-container" id="inicio">
       {videos.map((src, index) => (
         <video
           key={index}
@@ -76,7 +97,7 @@ const HeaderPage = () => {
 
       <div className="video-overlay"></div>
 
-      <div className="header-bar">
+      <div className={`header-bar ${lightNav ? "nav-light" : ""}`}>
         <div className="logo-container">
           <img src={logo} alt="Logo Crepaldi Engenharia" />
         </div>
