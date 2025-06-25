@@ -1,9 +1,15 @@
 import './App.css';
 import HeaderPage from './components/header';
-function App() {
+import AboutSection from './components/about';
+
+const App = () => {
   return (
-    <HeaderPage >/</HeaderPage>
-  )
-}
+    <>
+      <HeaderPage />
+      <AboutSection />
+
+    </>
+  );
+};
 
 export default App;

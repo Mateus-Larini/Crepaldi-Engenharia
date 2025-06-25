@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect, useMemo } from "react";
 import video1 from "../../assets/videos/buscando-chave.mp4";
 import video2 from "../../assets/videos/arrumando-peca.mp4";
-import logo from '../../assets/images/logo-crepaldi-engenharia.png';
-
+import logo from "../../assets/images/logo-crepaldi-engenharia.png";
+import { FaWhatsapp } from "react-icons/fa";
 import "./style.css";
 
 const HeaderPage = () => {
@@ -50,7 +50,6 @@ const HeaderPage = () => {
     };
   }, [activeIndex, refs, videos.length]);
 
-  // JSX
   return (
     <header className="header-container">
       {videos.map((src, index) => (
@@ -69,44 +68,45 @@ const HeaderPage = () => {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            zIndex: index === activeIndex ? 1 : 0,
+            zIndex: 1,
             transition: "opacity 1.5s ease-in-out",
           }}
         />
-      ))};
+      ))}
 
-      {/* Logo Crepaldi  */}
-      <div className="header-top">
-        <div className="logo">
-          <img src={logo} alt="Logo Crepaldi Engenharia"></img>
+      <div className="video-overlay"></div>
+
+      <div className="header-bar">
+        <div className="logo-container">
+          <img src={logo} alt="Logo Crepaldi Engenharia" />
         </div>
+        <nav className="nav-container">
+          <a href="#inicio">Página Inicial</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#contato">Contato</a>
+        </nav>
       </div>
-      
-      {/* Menu de navegação */}
-      <nav className="nav">
-        <a href="#inicio">Página Inicial</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Nossos Serviços</a>
-        <a href="#contato">Contato</a>
-      </nav>
 
-      {/* Texto principal */}
-      <div div="inicio" className="header-content">
+      <div className="header-content fade-in">
         <h1>
-          Conheça nossas opções de serviços de laudos técnicos,
-          responsabilidades técnicas e ART de Engenharia Mecânica para sua
-          empresa
+          Conheça nossas opções de <strong>laudos técnicos</strong>,{" "}
+          <strong>responsabilidades técnicas</strong> e{" "}
+          <strong>ART de Engenharia Mecânica</strong> para sua empresa
         </h1>
         <h2>Conformidade e segurança sem complicação</h2>
       </div>
-      
-      {/* Botão para direcionamento Whatsapp */}
-      <div className="button-direct-wpp">
+
+      <div className="button-direct-wpp fade-in">
         <a
           href="https://wa.me/5544991040020?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento."
-          targe="_blank"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <button className="button-wpp">Solicite seu orçamento agora!</button>
+          <button className="button-wpp">
+            <FaWhatsapp style={{ marginRight: 8 }} />
+            Solicite seu orçamento agora!
+          </button>
         </a>
       </div>
     </header>
