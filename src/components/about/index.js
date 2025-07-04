@@ -29,10 +29,18 @@ const AboutSection = () => {
           Sobre <span className="highlight">Gabriel</span> Crepaldi <FaCog className="icon-cog" />
         </h2>
         <p>
-          Com expertise em laudos técnicos e ARTs, oferecemos soluções robustas e inovadoras para sua empresa. Nossa prioridade é garantir segurança, qualidade e conformidade nos projetos de engenharia mecânica.
+        Meu nome é Gabriel, sou Engenheiro Mecânico formado no final de 2020. Desde então, tenho atuado com dedicação na área de manutenção automotiva pesada, onde tive a oportunidade, por bênção de Deus, de iniciar como Assistente de PCM e chegar ao cargo de Supervisor de PCM na Transpanorama Transportes S.A.        </p>
+        <p>
+        Em 2024, aceitei um novo desafio como Gerente de Planejamento e Manutenção na Construtora Lajeresk LTDA, onde sigo aprofundando meus conhecimentos em gestão de ativos, enfrentando desafios diários de manutenção pesada em equipamentos e veículos que operam em condições extremas.
         </p>
         <p>
-          Nossa equipe está sempre atualizada com as melhores práticas do mercado, focada em transformar desafios em oportunidades.
+        Diante de tudo que vivi até aqui, em 2025 decidi expandir minha atuação também para a área de laudos técnicos e A.R.T., com o objetivo de contribuir para processos mais seguros, equipamentos confiáveis e, acima de tudo, a proteção de vidas.
+        </p>
+        <p>
+        Acredito que garantir a segurança de operadores, trabalhadores e usuários é um compromisso essencial da Engenharia Mecânica. Por isso, meu trabalho é oferecer não apenas laudos, mas soluções que assegurem o funcionamento adequado de máquinas e estruturas, prevenindo riscos e promovendo a tranquilidade de quem depende delas.
+        </p>
+        <p>
+        Essa é a minha missão: unir experiência prática, responsabilidade técnica e cuidado com as pessoas para que cada equipamento cumpra seu papel — sem falhas, sem riscos, com máxima confiança.
         </p>
       </div>
       <div className="image-container">

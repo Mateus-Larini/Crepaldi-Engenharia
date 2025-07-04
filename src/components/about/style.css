@@ -11,10 +11,10 @@
   transition: opacity 0.8s ease, transform 0.8s ease;
   color: #0d3b66;
 
-  /* Novo fundo com gradiente suave */
-  background: linear-gradient(145deg, #f2f6fa, #ffffff);
+  /* Fundo gradiente suave */
+  background: linear-gradient(145deg, #f9fbfd, #e8f0fa);
   border-radius: 20px;
-  box-shadow: 0 12px 48px rgba(13, 59, 102, 0.1);
+  box-shadow: 0 12px 48px rgba(13, 59, 102, 0.08);
 }
 
 .about-section.visible {
@@ -64,7 +64,6 @@
   color: #21476b;
 }
 
-/* Container da imagem */
 .image-container {
   flex-shrink: 0;
   width: 280px;
@@ -78,21 +77,20 @@
   height: auto;
   border-radius: 20px;
   box-shadow:
-    0 8px 24px rgba(13, 59, 102, 0.4),
-    0 12px 48px rgba(13, 59, 102, 0.2);
+    0 8px 24px rgba(13, 59, 102, 0.35),
+    0 12px 48px rgba(13, 59, 102, 0.15);
   transform-style: preserve-3d;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-/* efeito sutil de profundidade quando hover */
 .image-container:hover img {
   transform: translateZ(20px) rotateY(5deg) rotateX(3deg);
   box-shadow:
-    0 12px 36px rgba(13, 59, 102, 0.6),
-    0 24px 72px rgba(13, 59, 102, 0.4);
+    0 12px 36px rgba(13, 59, 102, 0.5),
+    0 24px 72px rgba(13, 59, 102, 0.25);
 }
 
-/* Responsivo */
+/* Responsividade */
 @media (max-width: 900px) {
   .about-section {
     flex-direction: column-reverse;

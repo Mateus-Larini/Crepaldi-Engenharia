@@ -52,15 +52,25 @@ html {
   transition: all 0.4s ease;
   background-color: transparent;
   backdrop-filter: none;
+  border-bottom: none;
 }
 
+/* Estilo aplicado quando sobrepõe as seções #sobre e #servicos */
+.header-bar.nav-light {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(13, 59, 102, 0.2);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  color: #0d3b66; /* Azul escuro */
+}
+
+/* Links do menu */
 .nav-container {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
 }
 
-/* Links com efeito sublinhado animado */
 .nav-container a {
   color: inherit;
   text-decoration: none;
@@ -72,7 +82,6 @@ html {
   cursor: pointer;
 }
 
-/* Sublinhado que segue a cor do texto */
 .nav-container a::after {
   content: "";
   position: absolute;
@@ -87,36 +96,27 @@ html {
   z-index: 10;
 }
 
-/* Expande sublinhado no hover */
 .nav-container a:hover::after {
   width: 100%;
   background: currentColor;
 }
 
-/* Efeito “bump” leve ao hover */
 .nav-container a:hover {
   transform: scale(1.1) translateY(-3px);
 }
 
-/* Indicador para link ativo */
 .nav-container a.active::after {
   width: 100%;
   background: currentColor;
   box-shadow: 0 0 8px currentColor;
 }
 
-/* EFEITO AO CHEGAR NA SEÇÃO SOBRE */
-.nav-light {
-  /* fundo removido para transparência */
-  color: #0d3b66;
-  box-shadow: none; /* sem sombra */
-}
-
+/* Cor dos links ao rolar */
 .nav-light .nav-container a {
   color: #0d3b66;
 }
 
-/* Deixa a logo mais escura automaticamente */
+/* Deixa a logo mais escura automaticamente na nav clara */
 .nav-light .logo-container img {
   filter: brightness(0) saturate(100%) invert(14%) sepia(47%) saturate(504%) hue-rotate(176deg) brightness(93%) contrast(96%);
 }
@@ -126,6 +126,7 @@ html {
   height: 120px;
   width: auto;
   display: block;
+  transition: filter 0.3s ease;
 }
 
 /* Texto central */

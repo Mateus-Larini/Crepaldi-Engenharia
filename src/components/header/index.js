@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useMemo } from "react";
 import video1 from "../../assets/videos/buscando-chave.mp4";
 import video2 from "../../assets/videos/arrumando-peca.mp4";
-import logo from "../../assets/images/logo-crepaldi-engenharia.png";
+import logo from "../../assets/images/logo-clara.png";
 import { FaWhatsapp } from "react-icons/fa";
 import "./style.css";
 
@@ -15,6 +15,7 @@ const HeaderPage = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightNav, setLightNav] = useState(false);
 
+  // Alterna os vídeos automaticamente
   useEffect(() => {
     const currentVideo = refs[activeIndex].current;
 
@@ -51,24 +52,39 @@ const HeaderPage = () => {
     };
   }, [activeIndex, refs, videos.length]);
 
-  // IntersectionObserver para detectar a seção #sobre
+  // Observer para ativar nav clara nas seções #sobre e #servicos
   useEffect(() => {
     const aboutSection = document.getElementById("sobre");
-    if (!aboutSection) return;
+    const servicesSection = document.getElementById("servicos");
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setLightNav(entry.isIntersecting);
+      (entries) => {
+        // Verifica se alguma dessas seções está visível na tela
+        const isAboutVisible = entries.some(
+          (entry) => entry.target.id === "sobre" && entry.isIntersecting
+        );
+        const isServicesVisible = entries.some(
+          (entry) => entry.target.id === "servicos" && entry.isIntersecting
+        );
+
+        if (isAboutVisible || isServicesVisible) {
+          setLightNav(true);
+        } else {
+          setLightNav(false);
+        }
       },
       {
         root: null,
-        threshold: 0.3,
+        threshold: 0.3, // 30% visível para ativar
       }
     );
 
-    observer.observe(aboutSection);
+    if (aboutSection) observer.observe(aboutSection);
+    if (servicesSection) observer.observe(servicesSection);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   return (
