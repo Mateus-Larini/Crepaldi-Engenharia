@@ -13,7 +13,7 @@ const HeaderPage = () => {
   const refs = useMemo(() => [videoRef1, videoRef2], []);
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [lightNav, setLightNav] = useState(false);
+  const [lightNav, setLightNav] = useState("dark"); // inicializa em "dark" para header
 
   // Alterna os vídeos automaticamente
   useEffect(() => {
@@ -52,38 +52,32 @@ const HeaderPage = () => {
     };
   }, [activeIndex, refs, videos.length]);
 
-  // Observer para ativar nav clara nas seções #sobre e #servicos
+  // Observer para trocar a classe do nav com base no scroll (mobile)
   useEffect(() => {
-    const aboutSection = document.getElementById("sobre");
-    const servicesSection = document.getElementById("servicos");
+    const header = document.getElementById("inicio");
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Verifica se alguma dessas seções está visível na tela
-        const isAboutVisible = entries.some(
-          (entry) => entry.target.id === "sobre" && entry.isIntersecting
-        );
-        const isServicesVisible = entries.some(
-          (entry) => entry.target.id === "servicos" && entry.isIntersecting
-        );
+    const handleScroll = () => {
+      const headerBottom = header.getBoundingClientRect().bottom;
 
-        if (isAboutVisible || isServicesVisible) {
-          setLightNav(true);
+      if (window.innerWidth <= 768) {
+        if (headerBottom <= 0) {
+          // Saiu da primeira dobra no mobile: nav clara
+          setLightNav("light");
         } else {
-          setLightNav(false);
+          // Está no topo no mobile: nav escura (fundo preto translúcido)
+          setLightNav("dark");
         }
-      },
-      {
-        root: null,
-        threshold: 0.3, // 30% visível para ativar
+      } else {
+        // Desktop: nav clara se saiu do topo, transparente se no topo
+        setLightNav(headerBottom <= 0 ? "light" : false);
       }
-    );
+    };
 
-    if (aboutSection) observer.observe(aboutSection);
-    if (servicesSection) observer.observe(servicesSection);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // executa ao montar
 
     return () => {
-      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -113,7 +107,15 @@ const HeaderPage = () => {
 
       <div className="video-overlay"></div>
 
-      <div className={`header-bar ${lightNav ? "nav-light" : ""}`}>
+      <div
+        className={`header-bar ${
+          lightNav === "light"
+            ? "nav-light"
+            : lightNav === "dark"
+            ? "nav-dark-bg"
+            : ""
+        }`}
+      >
         <div className="logo-container">
           <img src={logo} alt="Logo Crepaldi Engenharia" />
         </div>

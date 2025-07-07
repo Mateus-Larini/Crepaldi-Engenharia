@@ -202,21 +202,30 @@ html {
 
 /* Responsivo */
 @media (max-width: 768px) {
-  .header-bar {
-    flex-direction: column;
-    align-items: center;
-    padding: 6px 10px;
+  .header-bar.nav-dark-bg {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    border-bottom: none;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.4s ease;
   }
-
+  
   .logo-container img {
     height: 80px;
   }
 
   .nav-container {
     margin-top: 8px;
-    flex-direction: column;
+    flex-direction: row; /* muda para linha */
     align-items: center;
     gap: 12px;
+    flex-wrap: nowrap; /* evitar quebra */
+    justify-content: center; /* centraliza horizontal */
+  }
+
+  .nav-container a {
+    white-space: nowrap;
   }
 
   .header-content {
@@ -256,3 +265,4 @@ html {
     padding: 8px 16px;
   }
 }
+

@@ -125,12 +125,15 @@ const responsabilidades = [
     icon: "🏢",
     title: "Engenheiro responsável técnico por empresas",
   },
+  
+];
+
+const outrosServicos = [
   {
     icon: "🔧",
     title: "Manutenção preventiva de máquinas e equipamentos em geral",
-  },
-];
-
+  }
+]
 const LaudosSection = () => {
   return (
     <section id="servicos" className="laudos-section">
@@ -170,9 +173,26 @@ const LaudosSection = () => {
               <div className="resp-icon">{icon}</div>
               <div className="resp-title">{title}</div>
             </div>
+            
           ))}
+          
         </div>
       </div>
+
+      <div className="responsabilidades-section">
+        <h2>Outros Serviços</h2>
+        <div className="underline" />
+        <div className="responsabilidades-grid">
+          {outrosServicos.map(({ icon, title }, index) => (
+            <div key={index} className="resp-card">
+              <div className="resp-icon">{icon}</div>
+              <div className="resp-title">{title}</div>
+            </div>
+          ))}
+          
+        </div>
+      </div>
+
     </section>
   );
 };
