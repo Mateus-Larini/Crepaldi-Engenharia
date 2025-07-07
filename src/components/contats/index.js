@@ -10,7 +10,7 @@ const ContactSection = () => {
           <div className="contact-info">
             <h2>Fale Conosco</h2>
             <p>Entre em contato para orçamentos, dúvidas técnicas ou parcerias.</p>
-            <p><strong>Email:</strong> contato@crepaldiengenharia.com.br</p>
+            <p><strong>Email:</strong> eng.gabrielcrepaldi@gmail.com</p>
             <p><strong>Telefone:</strong> (44) 99104-0020</p>
             <p><strong>Endereço:</strong> Marialva - PR</p>
           </div>

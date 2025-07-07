@@ -13,7 +13,7 @@ const HeaderPage = () => {
   const refs = useMemo(() => [videoRef1, videoRef2], []);
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [lightNav, setLightNav] = useState("dark"); // inicializa em "dark" para header
+  const [navClass, setNavClass] = useState("");
 
   // Alterna os vídeos automaticamente
   useEffect(() => {
@@ -52,33 +52,33 @@ const HeaderPage = () => {
     };
   }, [activeIndex, refs, videos.length]);
 
-  // Observer para trocar a classe do nav com base no scroll (mobile)
+  // Controla a classe da NAV com base no scroll e largura da tela
   useEffect(() => {
     const header = document.getElementById("inicio");
 
     const handleScroll = () => {
       const headerBottom = header.getBoundingClientRect().bottom;
+      const isMobile = window.innerWidth <= 768;
 
-      if (window.innerWidth <= 768) {
+      if (isMobile) {
         if (headerBottom <= 0) {
-          // Saiu da primeira dobra no mobile: nav clara
-          setLightNav("light");
+          setNavClass("nav-light"); // saiu do topo no mobile
         } else {
-          // Está no topo no mobile: nav escura (fundo preto translúcido)
-          setLightNav("dark");
+          setNavClass("nav-dark-mobile"); // está no topo no mobile
         }
       } else {
-        // Desktop: nav clara se saiu do topo, transparente se no topo
-        setLightNav(headerBottom <= 0 ? "light" : false);
+        if (headerBottom <= 0) {
+          setNavClass("nav-light"); // saiu do topo no desktop
+        } else {
+          setNavClass(""); // no topo no desktop (transparente)
+        }
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // executa ao montar
+    handleScroll();
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -107,15 +107,7 @@ const HeaderPage = () => {
 
       <div className="video-overlay"></div>
 
-      <div
-        className={`header-bar ${
-          lightNav === "light"
-            ? "nav-light"
-            : lightNav === "dark"
-            ? "nav-dark-bg"
-            : ""
-        }`}
-      >
+      <div className={`header-bar ${navClass}`}>
         <div className="logo-container">
           <img src={logo} alt="Logo Crepaldi Engenharia" />
         </div>
