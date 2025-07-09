@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useRef, useMemo } from "react";
-import video1 from "../../assets/videos/buscando-chave.mp4";
-import video2 from "../../assets/videos/arrumando-peca.mp4";
 import logo from "../../assets/images/logo-clara.png";
 import { FaWhatsapp } from "react-icons/fa";
 import "./style.css";
@@ -9,7 +7,12 @@ const HeaderPage = () => {
   const videoRef1 = useRef(null);
   const videoRef2 = useRef(null);
 
-  const videos = useMemo(() => [video1, video2], []);
+  // Caminhos públicos dos vídeos (sem import)
+  const videos = useMemo(() => [
+    "/media/buscando-chave.mp4",
+    "/media/arrumando-peca.mp4"
+  ], []);
+
   const refs = useMemo(() => [videoRef1, videoRef2], []);
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -61,17 +64,9 @@ const HeaderPage = () => {
       const isMobile = window.innerWidth <= 768;
 
       if (isMobile) {
-        if (headerBottom <= 0) {
-          setNavClass("nav-light"); // saiu do topo no mobile
-        } else {
-          setNavClass("nav-dark-mobile"); // está no topo no mobile
-        }
+        setNavClass(headerBottom <= 0 ? "nav-light" : "nav-dark-mobile");
       } else {
-        if (headerBottom <= 0) {
-          setNavClass("nav-light"); // saiu do topo no desktop
-        } else {
-          setNavClass(""); // no topo no desktop (transparente)
-        }
+        setNavClass(headerBottom <= 0 ? "nav-light" : "");
       }
     };
 
@@ -90,6 +85,7 @@ const HeaderPage = () => {
           src={src}
           muted
           autoPlay={false}
+          playsInline
           className="header-video"
           style={{
             opacity: index === activeIndex ? 1 : 0,
