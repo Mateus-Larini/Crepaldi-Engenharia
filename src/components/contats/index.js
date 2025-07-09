@@ -1,5 +1,6 @@
 import React from "react";
-import { FaCode } from "react-icons/fa";
+import { FaCode, FaLinkedin } from "react-icons/fa";
+
 import "./style.css";
 
 const ContactSection = () => {
@@ -21,7 +22,10 @@ const ContactSection = () => {
         <p>© {new Date().getFullYear()} Crepaldi Engenharia. Todos os direitos reservados.</p>
         <div className="dev-credit">
           <FaCode className="dev-icon" />
-          <span>Desenvolving by <strong>Mateus Larini</strong></span>
+          <span>Desenvolving by <strong>Mateus Larini </strong></span>
+          <a href="https://www.linkedin.com/in/mateus-larini-366602241/" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin size={30} color="#0077B5" />
+          </a>
         </div>
       </footer>
     </section>

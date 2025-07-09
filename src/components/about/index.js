@@ -29,19 +29,12 @@ const AboutSection = () => {
           Sobre <span className="highlight">Gabriel</span> Crepaldi <FaCog className="icon-cog" />
         </h2>
         <p>
-        Meu nome é Gabriel, sou Engenheiro Mecânico formado no final de 2020. Desde então, tenho atuado com dedicação na área de manutenção automotiva pesada, onde tive a oportunidade, por bênção de Deus, de iniciar como Assistente de PCM e chegar ao cargo de Supervisor de PCM na Transpanorama Transportes S.A.        </p>
-        <p>
-        Em 2024, aceitei um novo desafio como Gerente de Planejamento e Manutenção na Construtora Lajeresk LTDA, onde sigo aprofundando meus conhecimentos em gestão de ativos, enfrentando desafios diários de manutenção pesada em equipamentos e veículos que operam em condições extremas.
+        Engenheiro Mecânico formado em 2020, com sólida atuação na área de manutenção pesada. Iniciou sua trajetória como Assistente de PCM, alcançando a posição de Supervisor na Transpanorama Transportes S.A. Em 2024, assumiu a gerência de Planejamento e Manutenção na Construtora Lajeresk LTDA, onde lidera processos de gestão de ativos e manutenção de equipamentos em condições severas de operação na qual segue aprofundando seus conhecimentos em gestão de ativos, enfrentando desafios diários de manutenção pesada em equipamentos e veículos que operam em condições extremas.
         </p>
         <p>
-        Diante de tudo que vivi até aqui, em 2025 decidi expandir minha atuação também para a área de laudos técnicos e A.R.T., com o objetivo de contribuir para processos mais seguros, equipamentos confiáveis e, acima de tudo, a proteção de vidas.
-        </p>
+        Em 2025, expandiu sua atuação para a elaboração de laudos técnicos e emissão de A.R.T.s, com foco em segurança operacional, confiabilidade de equipamentos e preservação da vida. Seu trabalho busca oferecer soluções técnicas que previnam falhas, reduzam riscos e garantam a integridade de operadores e estruturas.        </p>
         <p>
-        Acredito que garantir a segurança de operadores, trabalhadores e usuários é um compromisso essencial da Engenharia Mecânica. Por isso, meu trabalho é oferecer não apenas laudos, mas soluções que assegurem o funcionamento adequado de máquinas e estruturas, prevenindo riscos e promovendo a tranquilidade de quem depende delas.
-        </p>
-        <p>
-        Essa é a minha missão: unir experiência prática, responsabilidade técnica e cuidado com as pessoas para que cada equipamento cumpra seu papel — sem falhas, sem riscos, com máxima confiança.
-        </p>
+        Com responsabilidade técnica e compromisso com a excelência, Gabriel alia experiência prática à visão estratégica para entregar resultados com confiança e segurança.        </p>
       </div>
       <div className="image-container">
         <img src={logo} alt="Gabriel perfil" />

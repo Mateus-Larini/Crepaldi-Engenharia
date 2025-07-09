@@ -91,12 +91,12 @@ const laudos = [
       "Inspeção em conformidade com NR-18, avaliando travamentos, amarrações, estabilidade e uso correto de acessórios.",
   },
   {
-    id: 12,
+  id: 12,
     title: "Laudo de Reclassificação de Monta",
     icon: "📄",
-    short: "Mudança da classificação técnica de máquinas.",
+    short: "Mudança da classificação técnica de máquinas e veículos.",
     detail:
-      "Documento que redefine o enquadramento da máquina/equipamento, com base em modificações ou novas aplicações. Exigido para atualizar registro técnico.",
+      "Documento que redefine o enquadramento da máquina/veículo, com base na monta estabelecida pelo órgão autuador no momento do acidente.",
   },
   {
     id: 13,
