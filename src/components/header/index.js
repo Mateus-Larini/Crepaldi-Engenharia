@@ -105,7 +105,7 @@ const HeaderPage = () => {
 
       <div className={`header-bar ${navClass}`}>
         <div className="logo-container">
-          <img src={logo} alt="Logo Crepaldi Engenharia" />
+          <img src={logo} alt="Crepaldi Engenharia" />
         </div>
         <nav className="nav-container">
           <a href="#inicio">Página Inicial</a>
